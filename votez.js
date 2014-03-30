@@ -9,7 +9,14 @@ Meteor.methods({
     }
 
 });
+
+
 if (Meteor.isClient) {
+    Meteor.startup(function() {
+
+    });
+
+
     Meteor.subscribe("places");
 
     Template.placesList.places = function () {
@@ -36,7 +43,7 @@ if (Meteor.isClient) {
                 votes: 0
             }, function (err) {
                 if (!err) {
-                    $("input[type=text]").val();
+                    $("input[type=text]").val('');
                 }
             });
         }
